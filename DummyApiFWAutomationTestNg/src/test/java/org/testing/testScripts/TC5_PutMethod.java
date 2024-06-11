@@ -8,15 +8,17 @@ import org.testing.utilities.JsonHandle;
 import org.testing.utilities.JsonParsing;
 import org.testing.utilities.JsonReplacement;
 import org.testing.utilities.PropertiesHandle;
+import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
 
 public class TC5_PutMethod {
 	public static String returnIdValue;
+	@Test
  public void testCase5() throws Exception {
 	try {
-	 Properties p = PropertiesHandle.loadProperties("../APIFWAutomation/URI.properties");
-	 String requestBody = JsonHandle.readJsonData("../APIFWAutomation/src/test/java/org/testing/resources/updateRequestBody.json");
+	 Properties p = PropertiesHandle.loadProperties("../DummyApiFWAutomationTestNg/URI.properties");
+	 String requestBody = JsonHandle.readJsonData("../DummyApiFWAutomationTestNg/src/test/java/org/testing/resources/updateRequestBody.json");
 	 requestBody = JsonReplacement.assignJsonValue(requestBody, "id",TC1_PostRequest.returnIdValue);
 	 HTTPMethods http = new HTTPMethods(p);
 	// http.postMethod(requestBody, "QA_URI");
